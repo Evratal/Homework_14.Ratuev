@@ -1,6 +1,13 @@
-def test_category_init(food):
-    assert food.name == "Food"
-    assert food.description == "Продуктовый отдел"
-    assert len(food.products) == 3
-    assert food.number_of_category == 1
-    assert food.number_of_products == 3
+
+def test_category_init(food_1):
+    assert food_1.name == "Food"
+    assert food_1.description == "Продуктовый отдел"
+    assert food_1.number_of_category == 1
+    assert food_1.product_count == 3
+
+def test_add_product(food_1,carrot):
+    food_1.add_product(carrot)
+    assert food_1.product_count == 4
+
+
+

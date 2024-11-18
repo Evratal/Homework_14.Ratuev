@@ -17,7 +17,7 @@ def chocolate():
     return Product("Chocolate", "Шоколад Алёнка", 49.99, 900)
 
 @ pytest.fixture
-def food():
+def food_1():
     return Category(
         name= "Food",
         description = "Продуктовый отдел",
@@ -28,3 +28,10 @@ def food():
         ]
 
     )
+
+
+@ pytest.fixture
+def smart():
+    smart = {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
+         "quantity": 5}
+    return smart
