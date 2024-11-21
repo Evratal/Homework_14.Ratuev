@@ -1,7 +1,4 @@
-from itertools import product
-
 from src.product import Product
-from tests.conftest import carrot
 
 
 def test_product_init(carrot):
@@ -11,7 +8,6 @@ def test_product_init(carrot):
     assert carrot.quantity == 500
 
 
-
 def test_new_product(smart):
     new_smart = Product.new_product(smart)
     assert new_smart.name == "Samsung Galaxy S23 Ultra"
@@ -19,3 +15,10 @@ def test_new_product(smart):
     assert new_smart.price == 180000.0
     assert new_smart.quantity == 5
 
+
+def test_product_str(carrot):
+    assert str(carrot) == "Carrot, 49.99 руб. Остаток: 500 шт."
+
+
+def test_product_add(carrot, apple):
+    assert carrot + apple == 48991.0
