@@ -22,7 +22,7 @@ class Product:
         return summ_cost
 
     @classmethod
-    def new_product(cls, prod_dict):
+    def new_product(cls,prod_dict):
         return cls(
             prod_dict["name"],
             prod_dict["description"],
