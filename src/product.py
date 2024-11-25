@@ -18,8 +18,9 @@ class Product:
 
     def __add__(self, other):
         """Магический метод для определения общей стоимости двух видов товаров на складе"""
-        summ_cost = self.price * self.quantity + other.price * other.quantity
-        return summ_cost
+        if not isinstance(other, self.__class__):
+            raise TypeError("Складывать можно только продукты одной категории")
+        return self.price * self.quantity + other.price * other.quantity
 
     @classmethod
     def new_product(cls, prod_dict):
@@ -49,8 +50,12 @@ class Product:
              если 'n', то отказывается, если никакой из двух,
             то через цикл запрашиваем ещё раз, пока не получим один из двух ответов"""
             while answer_user not in ["y", "n"]:
-                print("Новая цена ниже текущей. Вы действительно хотите понизить цену? ")
-                answer_user = input("Введите 'y'(в качестве подтверждения) или 'n'(в случае отказа от изменения): ")
+                print(
+                    "Новая цена ниже текущей. Вы действительно хотите понизить цену? "
+                )
+                answer_user = input(
+                    "Введите 'y'(в качестве подтверждения) или 'n'(в случае отказа от изменения): "
+                )
 
                 if answer_user == "y":
                     self.__price = new_price
