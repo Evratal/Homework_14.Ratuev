@@ -1,7 +1,6 @@
 import pytest
 
 from src.product import Product
-from tests.conftest import smartphone_1, smartphone_2
 
 
 def test_product_init(carrot):
