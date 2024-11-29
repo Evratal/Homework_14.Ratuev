@@ -10,7 +10,7 @@ class Category:
     name: str
     description: str
     products: list
-    number_of_category = 0
+    category_count = 0
     quantity: int
     product_count = 0
 
@@ -19,12 +19,14 @@ class Category:
         self.name = name  # Задаем имя категории
         self.description = description  # Задаем описание категории
         self.__products = products  # Вносим список товаров в категории
-        Category.number_of_category += (
+        Category.category_count += (
             1  # При создании категории, счётчик будет увеличиваться на 1
         )
         self.product_count += len(
             self.__products
         )  # Количество наименований товаров в категории
+    def __repr__(self):
+        return print(f"{self.name}")
 
     def __str__(self):
         summ_of_product = 0

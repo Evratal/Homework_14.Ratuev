@@ -4,7 +4,7 @@ import pytest
 def test_category_init(food_1):
     assert food_1.name == "Food"
     assert food_1.description == "Продуктовый отдел"
-    assert food_1.number_of_category == 1
+    assert food_1.category_count == 1
     assert food_1.product_count == 3
 
 

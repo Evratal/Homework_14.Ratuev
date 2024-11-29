@@ -1,6 +1,9 @@
-class Product:
-    """Класс для описания продукта"""
+from src.baseproduct import BaseProduct
+from src.mixinproduct import Mixin
 
+
+class Product(BaseProduct,Mixin):
+    """Класс для описания продукта"""
     name: str
     description: str
     price: float
@@ -12,9 +15,11 @@ class Product:
         self.description = description  # Задаем описание продукта
         self.__price = price  # Задаем цену
         self.quantity = quantity  # Задаем количество
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
 
     def __add__(self, other):
         """Магический метод для определения общей стоимости двух видов товаров на складе"""
