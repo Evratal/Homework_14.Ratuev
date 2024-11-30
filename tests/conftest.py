@@ -6,6 +6,7 @@ from src.product import Product
 from src.smartphone import Smartphone
 
 
+
 @pytest.fixture
 def carrot():
     return Product("Carrot", "Морковка отечественная", 49.99, 500)
