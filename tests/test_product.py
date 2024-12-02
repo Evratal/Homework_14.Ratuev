@@ -28,3 +28,7 @@ def test_baseproduct_add(carrot, apple, smartphone_1, smartphone_2):
     assert smartphone_1 + smartphone_2 == 2580000.0
     with pytest.raises(TypeError):
         smartphone_1 + 1
+
+def test_custom_exceptions(capsys):
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+         Product("New_Carrot", "Морковка отечественная новая", 49.99, 0)
