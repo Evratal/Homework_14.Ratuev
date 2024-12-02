@@ -14,7 +14,10 @@ class Product(BaseProduct,Mixin):
         self.name = name  # Задаем имя продукта
         self.description = description  # Задаем описание продукта
         self.__price = price  # Задаем цену
-        self.quantity = quantity  # Задаем количество
+        if quantity > 0:
+            self.quantity = quantity  # Задаем количество
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):

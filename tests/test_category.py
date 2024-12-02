@@ -1,4 +1,7 @@
 import pytest
+from pyexpat.errors import messages
+
+from src.product import Product
 
 
 def test_category_init(food_1):
@@ -20,3 +23,10 @@ def test_category_str(food_1):
 def test_category_add_product(food_1):
     with pytest.raises(TypeError):
         food_1.add_product("Неизвестный продукт")
+
+def test_middle_price(food_1,category_without_product):
+    assert food_1.middle_price() == 53.32
+    assert category_without_product.middle_price() == 0
+
+
+
